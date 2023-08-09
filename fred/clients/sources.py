@@ -23,8 +23,14 @@ class SourcesClient(NamespacedClient):
         params['source_id'] = source_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit',
                   'offset','sort_order','order_by')
@@ -47,8 +53,14 @@ class SourcesClient(NamespacedClient):
         path='/sources?'
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order')
@@ -73,5 +85,11 @@ class SourcesClient(NamespacedClient):
         params['source_id'] = source_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )

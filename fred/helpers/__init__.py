@@ -2,12 +2,10 @@ from sys import version_info
 if version_info[0] >= 3:
     from urllib.parse import urlencode
     from urllib.request import Request, urlopen
-    import ssl
 else:
     from urllib import urlencode
     from urllib2 import Request, urlopen
-    import ssl
-
+import ssl
 import fred.config as c
 from json import loads
 
@@ -45,8 +43,7 @@ def _url_builder(url_root,api_key,path,params):
     """
     params['api_key'] = api_key
     url_end = urlencode(params)
-    url = "%s%s%s" % (url_root,path,url_end)
-    return url
+    return f"{url_root}{path}{url_end}"
 
 def _convert(frame):
     """
@@ -64,12 +61,10 @@ def _dict(content):
     to a python dictionary for additional manipulation.
     """
     if _has_pandas:
-        data = _data_frame(content).to_dict(orient='records')
-    else:
-        response = loads(content)
-        key = [x for x in response.keys() if x in c.response_data][0]
-        data = response[key]
-    return data
+        return _data_frame(content).to_dict(orient='records')
+    response = loads(content)
+    key = [x for x in response.keys() if x in c.response_data][0]
+    return response[key]
 
 def _data_frame(content):
     """
@@ -79,40 +74,35 @@ def _data_frame(content):
     response = loads(content)
     key = [x for x in response.keys() if x in c.response_data][0]
     frame = DataFrame(response[key])
-    final_frame = _convert(frame)
-    return final_frame
+    return _convert(frame)
 
 def _csv(content):
     """
     Helper funcation that converts text-based get response
     to comma separated values for additional manipulation.
     """
-    response = _data_frame(content).to_csv(index=False)
-    return response
+    return _data_frame(content).to_csv(index=False)
 
 def _tab(content):
     """
     Helper funcation that converts text-based get response
     to tab separated values for additional manipulation.
     """
-    response = _data_frame(content).to_csv(index=False,sep='\t')
-    return response
+    return _data_frame(content).to_csv(index=False,sep='\t')
 
 def _pipe(content):
     """
     Helper funcation that converts text-based get response
     to pipe separated values for additional manipulation.
     """
-    response = _data_frame(content).to_csv(index=False,sep='|')
-    return response
+    return _data_frame(content).to_csv(index=False,sep='|')
 
 def _numpy(content):
     """
     Helper funcation that converts text-based get response
     to comma separated values for additional manipulation.
     """
-    response = _data_frame(content).values
-    return response
+    return _data_frame(content).values
 
 def _json(content):
     """
@@ -144,8 +134,7 @@ def _get_request(url_root,api_key,path,response_type,params, ssl_verify):
     """
     url = _url_builder(url_root,api_key,path,params)
     content = _fetch(url, ssl_verify)
-    response = _dispatch(response_type)(content)
-    return response
+    return _dispatch(response_type)(content)
 
 if _USE_JOBLIB_CACHE:
     import joblib

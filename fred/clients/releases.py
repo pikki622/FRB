@@ -28,8 +28,14 @@ class ReleasesClient(NamespacedClient):
         path='/releases?'
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','include_release_dates_with_no_data')
@@ -54,8 +60,14 @@ class ReleasesClient(NamespacedClient):
         path='/releases/dates?'
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end')
     def details(self,release_id=None,response_type=None,params=None):
@@ -74,8 +86,14 @@ class ReleasesClient(NamespacedClient):
         params['release_id'] = release_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end')
     def sources(self,release_id=None,response_type=None,params=None):
@@ -94,8 +112,14 @@ class ReleasesClient(NamespacedClient):
         params['release_id'] = release_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'sort_order','include_release_dates_with_no_data')
@@ -122,8 +146,14 @@ class ReleasesClient(NamespacedClient):
         params['release_id'] = release_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','filter_variable', 'filter_value',
@@ -154,8 +184,14 @@ class ReleasesClient(NamespacedClient):
         params['release_id'] = release_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','tag_names','tag_group_id','search_text')
@@ -187,8 +223,14 @@ class ReleasesClient(NamespacedClient):
         params['release_id'] = release_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','exclude_tag_names','tag_group_id','search_text')
@@ -221,5 +263,11 @@ class ReleasesClient(NamespacedClient):
         params['release_id'], params['tag_names'] = release_id, tag_names
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )

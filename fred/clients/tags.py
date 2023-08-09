@@ -31,8 +31,14 @@ class TagsClient(NamespacedClient):
         params['tag_names'] = tag_names
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','tag_names','tag_group_id','search_text')
@@ -59,8 +65,14 @@ class TagsClient(NamespacedClient):
         path = '/tags?'
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','exclude_tag_names','tag_group_id','search_text')
@@ -89,5 +101,11 @@ class TagsClient(NamespacedClient):
         params['tag_names'] = tag_names
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
