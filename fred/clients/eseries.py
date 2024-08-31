@@ -24,8 +24,14 @@ class ESeriesClient(NamespacedClient):
         params['series_id'] = series_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end')
     def categories(self,series_id=None,response_type=None,params=None):
@@ -44,8 +50,14 @@ class ESeriesClient(NamespacedClient):
         params['series_id'] = series_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end')
     def release(self,series_id=None,response_type=None,params=None):
@@ -64,8 +76,14 @@ class ESeriesClient(NamespacedClient):
         params['series_id'] = series_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end',
                   'order_by','sort_order')
@@ -89,8 +107,14 @@ class ESeriesClient(NamespacedClient):
         params['series_id'] = series_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit',
                   'offset','filter_value')
@@ -116,8 +140,14 @@ class ESeriesClient(NamespacedClient):
         params['series_id'] = series_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit',
                   'offset','sort_order')
@@ -142,8 +172,14 @@ class ESeriesClient(NamespacedClient):
         params['series_id'] = series_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit',
                   'offset','sort_order','observation_start','observation_end',
@@ -179,8 +215,14 @@ class ESeriesClient(NamespacedClient):
         params['series_id'] = series_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('search_type','realtime_start','realtime_end',
                   'limit','offset','order_by','sort_order','filter_variable',
@@ -212,8 +254,14 @@ class ESeriesClient(NamespacedClient):
         params['search_text'] = search_text
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end',
                       'limit','offset','order_by','sort_order','tag_names',
@@ -242,8 +290,14 @@ class ESeriesClient(NamespacedClient):
         params['series_search_text'] = series_search_text
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end',
                       'limit','offset','order_by','sort_order',
@@ -273,5 +327,11 @@ class ESeriesClient(NamespacedClient):
         params['series_search_text'], params['tag_names'] = series_search_text, tag_names
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )

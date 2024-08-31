@@ -21,8 +21,14 @@ class CategoriesClient(NamespacedClient):
         params['category_id'] = category_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end')
     def children(self,category_id=None,response_type=None,params=None):
@@ -41,8 +47,14 @@ class CategoriesClient(NamespacedClient):
         params['category_id'] = category_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end')
     def related(self,category_id=None,response_type=None,params=None):
@@ -64,8 +76,14 @@ class CategoriesClient(NamespacedClient):
         params['category_id'] = category_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','filter_variable', 'filter_value',
@@ -96,8 +114,14 @@ class CategoriesClient(NamespacedClient):
         params['category_id'] = category_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','tag_names','tag_group_id','search_text')
@@ -130,8 +154,14 @@ class CategoriesClient(NamespacedClient):
         params['category_id'] = category_id
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
 
     @query_params('realtime_start','realtime_end','limit','offset',
                   'order_by','sort_order','exclude_tag_names','tag_group_id','search_text')
@@ -165,5 +195,11 @@ class CategoriesClient(NamespacedClient):
         params['category_id'], params['tag_names'] = category_id, tag_names
         response_type = response_type if response_type else self.response_type
         if response_type != 'xml': params['file_type'] = 'json'
-        response = _get_request(self.url_root,self.api_key,path,response_type,params,self.ssl_verify)
-        return response
+        return _get_request(
+            self.url_root,
+            self.api_key,
+            path,
+            response_type,
+            params,
+            self.ssl_verify,
+        )
